@@ -3,16 +3,12 @@ import paho.mqtt.client as mqtt
 import time
 
 
-brokerIP= "169.254.140.49" #"localhost"
-brokerPort=1883
 
-client = mqtt.Client(client_id="Laptop Publisher")
-client.connect(brokerIP, port=brokerPort)
+client = mqtt.Client(client_id="Pi")
+client.connect("169.254.140.49", port=1883)
 
 msg = "34"
 for i in range(5):
     client.publish("topics/positions","34")
     print("Message sent")
-    time.sleep(10)
-
-
+    time.sleep(1)
